@@ -1,0 +1,30 @@
+<div
+  class="container-fluid d-flex justify-content-center align-items-center min-vh-100"
+>
+  <div *ngIf="newsData" class="card col-lg-10 mb-3 mt-3">
+    <img
+      [src]="newsData.urlToImage || 'https://via.placeholder.com/150'"
+      class="card-img-top"
+      alt="Image"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ newsData.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ newsData.author }}</h6>
+      <p class="card-text">{{ newsData.content }}</p>
+      <p class="card-text">
+        {{ newsData.description || "No description available." }}
+      </p>
+      <p class="card-text">
+        <small class="text-muted">{{ newsData.publishedAt | date }}</small>
+      </p>
+      <div class="d-flex justify-content-center mt-2">
+        <button (click)="NewsList()" class="btn btn-primary ms-4">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <a [href]="newsData.url" target="_blank" class="btn btn-secondary ms-4"
+          >Read Full Article</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
